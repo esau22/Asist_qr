@@ -1,0 +1,52 @@
+.paginationNav {
+  overflow-x: auto;
+  margin: 2rem 2rem 0 2rem;
+}
+
+.pagination {
+  display: flex;
+
+  padding: 2rem;
+  list-style: none;
+
+  gap: 0.5rem;
+}
+
+.pagination li {
+  margin: 0;
+  padding: 0;
+}
+
+.pagination li a {
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  border: 0;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.13);
+  border-radius: 0.5rem;
+}
+
+.pagination li:hover {
+  cursor: pointer;
+  color: white;
+  background-color: blue;
+  border: 0px;
+  transition: 10ms;
+}
+
+.pagination li:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.activePage {
+  background-color: rgb(13, 16, 197);
+  color: white;
+  font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  .pagination {
+    display: flex;
+    justify-content: center;
+  }
+}

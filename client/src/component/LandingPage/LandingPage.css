@@ -1,0 +1,71 @@
+.landingContainer {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.landing {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.landingInfo {
+  padding: 4rem;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.landingInfo span {
+  color: #333333;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.landing h1 {
+  color: #222222;
+  font-family: "Alfa Slab One", cursive;
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
+}
+
+.landingImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f1f1f1;
+  overflow: hidden;
+}
+
+.landingImage img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+.landing button {
+  color: white;
+  background-color: #3366cc;
+  font-size: 1.6rem;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  align-self: center;
+  margin-top: 2rem;
+}
+
+.landing button:hover {
+  background-color: #2255aa;
+  transform: scale(1.05);
+}

@@ -1,0 +1,39 @@
+/* HoverScroll.css */
+
+.to-up-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  width: 60px;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: opacity 1000ms, width 300ms, height 300ms;
+  z-index: 999;
+  background-color: black;
+  opacity: 0;
+}
+
+.to-up-button.hovered {
+  background-color: #0c4077;
+  width: 50px;
+  height: 50px;
+  opacity: 1;
+}
+
+.to-up-button:not(.hovered):hover {
+  opacity: 0.5;
+}
+
+.to-up-button.hidden {
+  display: none;
+}
+
+.to-up-button.visible {
+  display: block;
+}

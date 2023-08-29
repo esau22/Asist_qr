@@ -1,0 +1,146 @@
+.backDetail {
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+  padding: 5px 15px;
+  background-color: white;
+  color: black;
+  border: 0px solid black;
+  border-radius: 0.5rem;
+  margin-bottom: 4rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.13);
+}
+
+.backDetail:hover {
+  background-color: blue;
+  color: white;
+  border-color: blue;
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.detailContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5rem;
+}
+
+.details {
+  border: 0px solid black;
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.13);
+  /* width: 40rem; */
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 1200px) {
+  .details {
+    flex-direction: row;
+  }
+}
+
+.detailBreed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60rem;
+  height: 60rem;
+}
+
+.detailBreed h1 {
+  font-size: 3rem;
+}
+
+.detailBreed h2 {
+  font-size: 1.8rem;
+  font-weight: normal;
+  margin: 0;
+}
+
+.detailBreed h3 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+/* Caracteristicas */
+
+.caracteristBreed {
+  display: flex;
+  gap: 1rem;
+}
+
+.detailBreed h1 {
+  text-transform: uppercase;
+}
+
+.caracterist {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 1rem 0;
+  width: 15rem;
+  height: 6rem;
+  border: 0px solid black;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.13);
+}
+
+/* Temperaments */
+
+.temperamentsDetail {
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.temperamentsDetail h2 {
+  margin: 1rem 0;
+}
+
+.temperamentsInfo {
+  width: 20rem;
+  max-height: 20rem;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  /* grid-template-columns: repeat(8, 1fr); */
+  gap: 0.5rem;
+  padding: 2rem;
+}
+
+.temperamentsInfo h2 {
+  margin: 0;
+  width: max-content;
+  font-size: 1.5rem;
+  padding: 5px 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.13);
+  border: 0px solid black;
+  border-radius: 0.5rem;
+}
+
+.detailsImg {
+  display: flex;
+  justify-content: center;
+}
+
+.detailsImg img {
+  width: 60rem;
+  height: 60rem;
+  border-right: 0px solid black;
+  border-radius: 0.5rem 0.5rem 0 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (min-width: 1200px) {
+  .detailsImg img {
+    border-radius: 0.5rem 0 0 0.5rem;
+  }
+}
