@@ -14,7 +14,7 @@ module.exports = (sequelize) => {
     },
     {
       // Desactivamos las fechas.
-      //freezeTableName: true,
+      freezeTableName: true,
       timestamps: false,
     }
   );

@@ -4,7 +4,7 @@ const { DataTypes } = require("sequelize");
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define(
-    "breed",
+    "dog",
     {
       id: {
         type: DataTypes.UUID,
@@ -30,13 +30,12 @@ module.exports = (sequelize) => {
       },
       image: {
         type: DataTypes.STRING(500),
-        defaultValue:
-          "https://www.publicdomainpictures.net/pictures/260000/velka/dog-face-cartoon-illustration.jpg",
+        defaultValue: "URL por defecto de la imagen",
       },
     },
     {
       // Desactivamso los timestamps.
-      //freezeTableName: true,
+      freezeTableName: true,
       timestamps: false,
     }
   );

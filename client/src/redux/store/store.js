@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware, compose, combineReducers } from "redux";
-import breeds from "../reducers/dogsReducers";
+import dogs from "../reducers/dogsReducers";
 import loader from "../reducers/loaderReducers";
 import thunk from "redux-thunk";
 
@@ -8,7 +8,7 @@ const composeEnhancers =
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
   compose;
 const reducers = combineReducers({
-  breeds: breeds,
+  breeds: dogs,
   loader: loader,
 });
 

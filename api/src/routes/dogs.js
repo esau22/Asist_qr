@@ -1,6 +1,6 @@
 const axios = require("axios");
 const app = require("express").Router();
-const { Breed, Temperament } = require("../db.js");
+const { Dog, Temperament } = require("../db");
 require("dotenv").config();
 const { DOGS_API_KEY } = process.env;
 const apiLink = `https://api.thedogapi.com/v1/breeds?api_key=${DOGS_API_KEY}`;
@@ -16,7 +16,7 @@ const getFromApi = async () => {
   /**
    * Filtrado de datos:
    */
-  const breedsFromApi = apiData.data.map((element) => {
+  const dogsFromApi = apiData.data.map((element) => {
     // Traemos todos los temperaments, y los separamos en un array.
     let temperamentsArray = [];
     if (element.temperament) {
@@ -51,12 +51,12 @@ const getFromApi = async () => {
     // Insersion en masa de los temperaments.
     await Temperament.bulkCreate(temperamentsInObjet);
   }
-  return breedsFromApi;
+  return dogsFromApi;
 };
 
 // Datos de la Data base.
 const getFromDb = async () => {
-  const dbInfo = await Breed.findAll({
+  const dbInfo = await Dog.findAll({
     // Buscamos las razas creadas con sus temperamentos asociados.
     include: {
       model: Temperament,
@@ -66,7 +66,7 @@ const getFromDb = async () => {
       },
     },
   });
-  const breedsFromDb = dbInfo.map((element) => {
+  const dogsFromDb = dbInfo.map((element) => {
     // Filtramos los datos de la Db.
     return {
       id: element.id,
@@ -79,52 +79,52 @@ const getFromDb = async () => {
       temperaments: element.temperaments.map((temperament) => temperament.name),
     };
   });
-  return breedsFromDb;
+  return dogsFromDb;
 };
 // Combine breeds from Api and Db.
-const getAllBreeds = async () => {
-  const breedFromApi = await getFromApi();
-  const breedFromDb = await getFromDb();
-  const allBreedsMixed = [...breedFromDb, ...breedFromApi];
-  return allBreedsMixed;
+const getAllDogs = async () => {
+  const dogFromApi = await getFromApi();
+  const dogFromDb = await getFromDb();
+  const allDogsMixed = [...dogFromDb, ...dogFromApi];
+  return allDogsMixed;
 };
 app.get("/dogs", async (req, res) => {
   try {
     // Buscar por nombre de raza.
     const { name } = req.query;
-    const allBreeds = await getAllBreeds();
-    if (!name) return res.status(200).send(allBreeds);
+    const allDogs = await getAllDogs();
+    if (!name) return res.status(200).send(allDogs);
     // Buscamos los que coincidan pro nombre.
-    const breedsByName = allBreeds.filter((breed) =>
-      breed.name.toLowerCase().includes(name.toLowerCase())
+    const dogsByName = allDogs.filter((dog) =>
+      dog.name.toLowerCase().includes(name.toLowerCase())
     );
     // Verificamos respuesta de array vacio.
-    breedsByName.length
-      ? res.status(200).send(breedsByName)
+    dogsByName.length
+      ? res.status(200).send(dogsByName)
       : res.status(404).send("Breed not found");
   } catch (error) {
     res.status(400).send("Error en el servidor");
   }
 });
-app.get("/dogs/:idBreed", async (req, res) => {
+app.get("/dogs/:idDog", async (req, res) => {
   try {
     // Buscar por id de raza.
-    const { idBreed } = req.params;
-    const allBreeds = await getAllBreeds();
-    const breedById = allBreeds.filter((breed) => breed.id == idBreed);
-    breedById.length
-      ? res.status(200).send(breedById)
+    const { idDog } = req.params;
+    const allDogs = await getAllDogs();
+    const dogById = allDogs.filter((dog) => dog.id == idDog);
+    dogById.length
+      ? res.status(200).send(dogById)
       : res.status(404).send("Breed not found");
   } catch (error) {
     res.status(400).send("Error en el servidor");
   }
 });
 app.get("/api", async (req, res) => {
-  const allBreeds = await getFromApi();
+  const allDogs = await getFromApi();
   // const allBreeds = await getFromDb();
   // console.log(allTemperamentsArray);
   // console.log(auxArray);
-  res.status(200).send(allBreeds);
+  res.status(200).send(allDogs);
   // res.status(200).send(allTemperamentsArray);
 });
 app.get("/db", async (req, res) => {
@@ -195,7 +195,7 @@ app.post("/dog", async (req, res) => {
     const mixedLife = [];
     mixedLife.push(min_life, max_life);
     // Creamos nuestro modelo.
-    let newBreed = await Breed.create({
+    let newDog = await Dog.create({
       name,
       height: mixedHeight,
       weight: mixedWeight,
@@ -209,12 +209,13 @@ app.post("/dog", async (req, res) => {
         where: { name: temperament },
       });
       // Lo asociamos con la raza creada.
-      await newBreed.addTemperament(associateTemperament);
+      await newDog.addTemperament(associateTemperament);
     });
     // console.log(newBreed);
-    res.status(200).send(newBreed);
+    res.status(200).send(newDog);
   } catch (error) {
     res.status(400).send(error.message);
   }
 });
+
 module.exports = app;
