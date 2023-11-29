@@ -1,100 +1,29 @@
+/* Card.css */
+
 .card {
-  color: black;
-  width: 40rem;
-  height: 58rem;
-  margin: 0 auto;
-  position: relative;
-  border-radius: 1rem;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.13);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+
+  /* Ajusta el tamaño máximo de la tarjeta según tus necesidades */
+  max-width: 300px;
 }
 
 .card:hover {
-  cursor: pointer;
-  transform: scale(1.02);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* Texto principal */
-
-.principalContent {
-  position: absolute;
-  width: 25rem;
-  height: 8rem;
-  display: flex;
-  align-items: center;
-  background: white;
-  bottom: -4rem;
-  border-radius: 1rem;
-  /* border: 1px solid black; */
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.13);
+h2 {
+  margin: 8px 0;
 }
 
-.principalContent h2 {
-  /* background-color: red; */
-  font-weight: bold;
-  font-size: 2rem;
-  padding: 0.5rem 1.5rem;
-  text-transform: uppercase;
-  text-align: center;
+/* Puedes personalizar los estilos del código QR según tus preferencias */
+.qrcode {
+  margin-top: 16px;
 }
 
-.cardName {
-  margin: 0 auto;
-}
-
-.cardImg {
-  position: relative;
-  width: 40rem;
-  height: 40rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.cardImg img {
-  border-radius: 1rem 1rem 0 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-/* Contenido */
-.cardContent {
-  margin-top: 7rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 15rem;
-  justify-content: space-between;
-}
-
-.cardInfo {
-  margin: 0 auto 1rem auto;
-  padding: 0.5rem 1.5rem;
-  border-radius: 0.5rem;
-  width: max-content;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.13);
-}
-
-.cardItems h3 {
-  font-size: 1.8rem;
-  line-height: 2.5rem;
-  font-weight: normal;
-  text-align: center;
-}
-
-.cardContent button {
-  background-color: black;
-  border: 1px solid transparent;
-  color: white;
-  padding: 0.5rem 1.5rem;
-  border-radius: 0.5rem;
-}
-
-.cardContent button:hover {
-  background-color: white;
-  color: black;
-  cursor: pointer;
-  border: 1px solid black;
-  transition: 0.2s;
-}
+/* Añade estilos adicionales según sea necesario */

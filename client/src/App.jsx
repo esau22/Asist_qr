@@ -1,9 +1,9 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import { Nav } from "./component/Nav/Nav";
 import { LandingPage } from "./component/LandingPage/LandingPage";
+import { Matricula } from "./component/Form/Matricula/Matricula";
+import { Asist } from "./component/Form/Asistencia/Asist";
 import { Home } from "./component/Home/Home";
-import { Detail } from "./component/Detail/Detail";
-import { Form } from "./component/Form/Form";
 import { PageNotFound } from "./component/PageNotFound/PageNotFound";
 import { HoverScroll } from "./component/Scroll/HoverScroll";
 import "./App.css";
@@ -17,9 +17,9 @@ export const App = () => {
       {pathname === "/" ? null : <Nav />}
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/home/:id" element={<Detail />} />
-        <Route path="/dog" element={<Form />} />
+        <Route path="/matricula" element={<Matricula />} />
+        <Route path="/asistencia" element={<Asist />} />
+        <Route path="/matriculas" element={<Home />} />
         <Route path="/*" element={<PageNotFound />} />
       </Routes>
       <HoverScroll />

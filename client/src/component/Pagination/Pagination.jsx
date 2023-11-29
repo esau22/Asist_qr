@@ -1,10 +1,10 @@
 import React from "react";
 import "./Pagination.css";
 
-export const Pagination = ({ breedsPerPage, breeds, pagination }) => {
+export const Pagination = ({ breedsPerPage, estudiante, pagination }) => {
   // Recibo los parametros y la funcion para setear el paginado.
   const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(breeds / breedsPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(estudiante / breedsPerPage); i++) {
     pageNumbers.push(i);
   }
   return (

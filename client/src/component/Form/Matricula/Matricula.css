@@ -44,7 +44,7 @@
 
 .form label {
   font-size: 1.6rem;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .form hr {

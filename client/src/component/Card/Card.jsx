@@ -1,23 +1,15 @@
 import React from "react";
 import "./Card.css";
+import QRCode from "qrcode.react";
 
-export const Card = ({ id, name, temperaments, weight, image }) => {
+export const Card = ({ id_matricula, nombre, apellido, correo, imagen }) => {
   return (
     <div className="card">
-      <div className="cardImg">
-        <img src={image} alt="" />
-        <div className="principalContent">
-          <h2 className="cardName">{name}</h2>
-        </div>
-      </div>
-      <div className="cardContent">
-        <div className="cardItems">
-          <h3 className="cardInfo">{weight.join(" - ")} Kg</h3>
-          <h3 className="cardInfo">
-            {temperaments.join(", ").slice(0, 25)}...
-          </h3>
-        </div>
-      </div>
+      <h3>{id_matricula}</h3>
+      <h3>{nombre}</h3>
+      <h3>{apellido}</h3>
+      <p>{correo}</p>
+      <QRCode value={imagen} />
     </div>
   );
 };
