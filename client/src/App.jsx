@@ -2,7 +2,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { Nav } from "./component/Nav/Nav";
 import { LandingPage } from "./component/LandingPage/LandingPage";
 import { Matricula } from "./component/Form/Matricula/Matricula";
-import { Asist } from "./component/Form/Asistencia/Asist";
+import { RegistrarAsist } from "./component/Asistencia/RegistrarAsist";
 import { Home } from "./component/Home/Home";
 import { PageNotFound } from "./component/PageNotFound/PageNotFound";
 import { HoverScroll } from "./component/Scroll/HoverScroll";
@@ -18,7 +18,7 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/matricula" element={<Matricula />} />
-        <Route path="/asistencia" element={<Asist />} />
+        <Route path="/asistencia" element={<RegistrarAsist />} />
         <Route path="/matriculas" element={<Home />} />
         <Route path="/*" element={<PageNotFound />} />
       </Routes>
