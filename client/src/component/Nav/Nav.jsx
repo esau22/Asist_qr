@@ -13,11 +13,9 @@ export const Nav = () => {
       <nav className="headerLinks">
         <div className="links">
           <Link to="/home">Home</Link>
-          <Link to="/detail">Detalle</Link>
         </div>
         <div className="links">
           <Link to="/matriculas">Registro Matricula</Link>
-
           <Link to="/asistencia">Registrar Asistencia</Link>
           <Link to="/matricula">Registrar Matricula</Link>
           <Link to="/asistencias">Registro de Asistencias</Link>

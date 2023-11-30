@@ -1,6 +1,6 @@
 const app = require("express").Router();
 //const qr = require("qrcode");
-const { Asistencia, Estudiante } = require("../db");
+const { Asistencia, Estudiante, Matricula } = require("../db");
 
 app.post("/asistencia", async (req, res) => {
   try {
@@ -36,14 +36,27 @@ app.post("/asistencia", async (req, res) => {
 
 app.get("/asistencias", async (req, res) => {
   try {
-    // Obtener todas las matrículas
-    const asistencia = await Asistencia.findAll();
+    // Obtener todas las asistencias con los datos del estudiante
+    const asistencias = await Asistencia.findAll({
+      include: [
+        {
+          model: Estudiante,
+          include: [
+            {
+              model: Matricula,
+              attributes: ["nombre", "apellido"],
+            },
+          ],
+        },
+      ],
+    });
 
-    // Devolver las matrículas como respuesta
-    res.status(200).json(asistencia);
+    // Devolver las asistencias con los datos del estudiante como respuesta
+    res.status(200).json(asistencias);
   } catch (error) {
-    console.error("Error al obtener matrículas:", error);
+    console.error("Error al obtener asistencias:", error);
     res.status(500).json({ error: "Error interno del servidor" });
   }
 });
+
 module.exports = app;

@@ -1,0 +1,35 @@
+/* Estilos generales */
+div {
+  margin: 20px;
+}
+
+h2 {
+  color: #333;
+}
+
+/* Estilos de la tabla */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+/* Estilos de las tarjetas de asistencia */
+.card {
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+/* Otros estilos según tus necesidades */
