@@ -58,7 +58,7 @@ export const Home = () => {
                   nombre={matricula.nombre}
                   apellido={matricula.apellido}
                   correo={matricula.correo}
-                  imagen={`Id_matricula: ${matricula.id_matricula},Nombre: ${matricula.nombre}, Apellido: ${matricula.apellido}, Correo: ${matricula.correo}`}
+                  imagen={`Id_estudiante: ${matricula.id_estudiante},Nombre: ${matricula.nombre}, Apellido: ${matricula.apellido}, Correo: ${matricula.correo}`}
                   key={matricula.id_matricula}
                 />
               </Link>

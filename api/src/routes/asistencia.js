@@ -34,7 +34,7 @@ app.post("/asistencia", async (req, res) => {
   }
 });
 
-app.get("/asistencia", async (req, res) => {
+app.get("/asistencias", async (req, res) => {
   try {
     // Obtener todas las matrículas
     const asistencia = await Asistencia.findAll();

@@ -4,9 +4,29 @@ import {
   REGISTRAR_ASISTENCIA,
   MOSTRAR_MATRICULA,
   MOSTRAR_ESTUDIANTE,
+  MOSTRAR_ASISTENCIA,
 } from "../actionsTypes/actionsTypes";
 
 import { startLoading, finishLoading } from "./loaderActions";
+
+export const mostrarAsistencia = () => {
+  // Importante recibir el dispatch como parametro de funcion.
+  return async (dispatch) => {
+    dispatch(startLoading());
+    // Traemos todas las razas.
+    try {
+      const asistencia = await axios.get("/asistencias");
+      dispatch({
+        type: MOSTRAR_ASISTENCIA,
+        payload: asistencia.data,
+      });
+      dispatch(finishLoading());
+    } catch (error) {
+      //Chequear esto despues....
+      console.log(error.response.data);
+    }
+  };
+};
 
 export const mostrarEstudiante = () => {
   // Importante recibir el dispatch como parametro de funcion.

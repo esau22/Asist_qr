@@ -4,6 +4,7 @@ import { LandingPage } from "./component/LandingPage/LandingPage";
 import { Matricula } from "./component/Form/Matricula/Matricula";
 import { RegistrarAsist } from "./component/Asistencia/RegistrarAsist";
 import { Home } from "./component/Home/Home";
+import { DetailAsistencia } from "./component/Detail/DetailAsistencia";
 import { PageNotFound } from "./component/PageNotFound/PageNotFound";
 import { HoverScroll } from "./component/Scroll/HoverScroll";
 import "./App.css";
@@ -20,6 +21,7 @@ export const App = () => {
         <Route path="/matricula" element={<Matricula />} />
         <Route path="/asistencia" element={<RegistrarAsist />} />
         <Route path="/matriculas" element={<Home />} />
+        <Route path="/asistencias" element={<DetailAsistencia />} />
         <Route path="/*" element={<PageNotFound />} />
       </Routes>
       <HoverScroll />

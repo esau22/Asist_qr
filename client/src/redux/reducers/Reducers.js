@@ -3,6 +3,7 @@ import {
   REGISTRAR_ASISTENCIA,
   MOSTRAR_MATRICULA,
   MOSTRAR_ESTUDIANTE,
+  MOSTRAR_ASISTENCIA,
 } from "../actionsTypes/actionsTypes";
 
 const initialState = {
@@ -33,6 +34,12 @@ function MatriculaReducers(state = initialState, action) {
       return {
         ...state,
         estudiantes: action.payload,
+      };
+    case MOSTRAR_ASISTENCIA:
+      // En nuestro estado cargamos las breeds.
+      return {
+        ...state,
+        asistencias: action.payload,
       };
     default:
       return state;
